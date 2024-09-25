@@ -1,16 +1,16 @@
 const { Pool } = require('pg');
 require('dotenv').config({ path: './key.env' });  
 
-// Log environment variables to confirm they're loaded
+// Logging to confirm environment variables are loaded correctly
 console.log("PG_USER:", process.env.PG_USER);   
 console.log("PG_DATABASE:", process.env.PG_DATABASE);
 
 const pool = new Pool({
   user: process.env.PG_USER,
-  host: process.env.PG_HOST,
+  host: process.env.PG_HOST,       
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
+  port: process.env.PG_PORT || 5432,  
 });
 
 module.exports = pool;
